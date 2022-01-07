@@ -1,0 +1,83 @@
+  <div  class="logo">
+    <a href="index.html"><img src="Assets/carolina.png"  width="15%" height="15%" ></a>
+  </div>
+
+  <div id="tela">
+
+    <img style="width: 380px; height:380px;" src="Assets/imagemG2.png">
+    <img style="width: 380px; height:380px;" src="Assets/imagemG3.png">
+    <img style="width: 380px; height:380px;" src="Assets/imagemG4.png">
+    <img style="width: 380px; height:380px;" src="Assets/imagemG5.png">
+    <img style="width: 380px; height:380px;" src="Assets/imagemG6.png">
+    <img style="width: 300px; height:300px;" src="Assets/imagemP1.png">
+    <img style="width: 300px; height:300px;" src="Assets/imagemP2.png">
+    <img style="width: 300px; height:300px;" src="Assets/imagemP3.png">
+    <img style="width: 300px; height:300px;" src="Assets/imagemP4.png">
+
+  </div>
+      
+      <script>
+        
+        var x=100;
+        var y=100;
+
+        var largura=100;
+        var altura=100;
+
+        var tela=document.getElementById("tela");
+
+
+        tela.style.position="absolute";
+        tela.style.width=largura+"%";
+        tela.style.height=altura+"%";
+        tela.style.top=x+"px";
+        tela.style.left=y+"px";
+
+        var imagens=tela.getElementsByTagName('img');
+        for(var i=0; i<imagens.length;i++){
+          imagens[i].style.position="absolute";
+          imagens[i].style.marginLeft=Math.random()*(tela.offsetWidth-imagens[i].offsetWidth);
+          imagens[i].style.marginTop=Math.random()*(tela.offsetHeight-imagens[i].offsetHeight);
+          imagens[i].setAttribute('draggable', false);
+          imagens[i].addEventListener('mousedown',  down );
+        }
+
+        var press=false;
+        var atual, prevX, prevY;
+
+        function down(evt){
+          console.log("down");
+          press=true;
+          atual=this;
+          prevX=evt.clientX;
+          prevY=evt.clientY;
+        }
+        document.onmouseup = function() { 
+          console.log("up");
+
+          if(parseInt(atual.style.marginLeft.slice(0, -2))<0){
+            atual.style.marginLeft=0;
+          }
+          if(parseInt(atual.style.marginTop.slice(0, -2))<0){
+            atual.style.marginTop=0;
+          }
+          if(parseInt(atual.style.marginLeft.slice(0, -2))>tela.offsetWidth){
+            atual.style.marginLeft=tela.offsetWidth-atual.offsetWidth;
+          }
+          if(parseInt(atual.style.marginTop.slice(0, -2))>tela.offsetHeight){
+            atual.style.marginTop=tela.offsetHeight-atual.offsetHeight;
+          }
+          press=false;
+          atual=null;
+          prevX=null;
+          prevY=null;
+        };
+
+        document.onmousemove = function(evt) { 
+          if(press) { 
+            atual.style.marginLeft=evt.clientX-x-atual.offsetWidth/2;
+            atual.style.marginTop=evt.clientY-y-atual.offsetHeight/2;
+          } 
+        };
+
+    </script>

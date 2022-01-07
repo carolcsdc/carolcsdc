@@ -1,0 +1,78 @@
+@font-face {
+  font-family: CutiveMono;
+  src: url("../Assets/CutiveMono-Regular.ttf");
+}
+
+
+p {
+    color: #F5BDAC;
+    font-family: CutiveMono;
+    font-size: 25px;
+    margin: auto;
+    width: 75%;
+    padding: 50px 50px 100px 100px;
+    display: block;
+}
+
+
+.bg {
+    background-image: url("../Assets/background2.png");
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh; 
+}
+
+a {
+    color: #F5BDAC;
+    font-family: CutiveMono;
+    font-size: 25px;
+    margin: auto;
+    width: 75%;
+    padding: 50px 30px 50px;
+}
+
+.sociais {
+    float: right;
+    margin: auto;
+    padding: 0px 50px 0px 20px;
+}
+
+
+.pSobre {
+    color: white;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery {
+    margin: 50px 50px 50px 50px;
+    text-align: center;
+}
+
+.gallery img {
+    transition: 1s;
+    padding: 15px;
+    width: 300px;
+}
+
+.gallery img:hover {
+    filter: grayscale(50%);
+    transform: scale(1.1);
+}
+
+
+.logo {
+    text-align: center;
+}
+
+.sobreFooter a {
+    color: grey;
+}
